@@ -5,7 +5,7 @@
     {% for item in youtubeFeed %}
     <article style="background-image: url({{ item.snippet.thumbnails.default.url }})">
       <i class="icon-youtube-play"></i>
-      <a href="#">
+      <a href="https://www.youtube.com/watch?v={{ item.id.videoId }}">
         <h1>{{ item.snippet.title }}</h1>
         <p>{{ item.snippet.description }}</p>
       </a>

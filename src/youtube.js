@@ -14,6 +14,7 @@ exports.getFeed = function getFeed(channelID) {
                 superagent.get('https://www.googleapis.com/youtube/v3/search')
                     .query({part: 'snippet'})
                     .query({order: 'date'})
+                    .query({type: 'video'})
                     .query({channelId: channelID})
                     .query({key: process.env.YOUTUBE_SECRET})
                     .end(function(err, res) {
