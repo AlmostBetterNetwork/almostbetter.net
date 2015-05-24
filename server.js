@@ -10,12 +10,19 @@ var rss = require('./src/rss');
 var util = require('./src/util');
 
 
+var RSS_FEEDS = {
+    'abts': 'https://media.signalleaf.com/Almost-Better-Than-Silence/rss',
+    'abtd': 'https://media.signalleaf.com/Almost-Better-Than-Dragons/rss',
+    'pcp': 'http://presscontinue.podbean.com/feed/',
+};
+
+
 app.get('/', function(req, res) {
 
     util.eachPromise({
-        'feed_abts': rss.getRSS('https://media.signalleaf.com/Almost-Better-Than-Silence/rss', 'abts'),
-        'feed_abtd': rss.getRSS('https://media.signalleaf.com/Almost-Better-Than-Dragons/rss', 'abtd'),
-        'feed_pcp': rss.getRSS('http://presscontinue.podbean.com/feed/', 'pcp'),
+        'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
+        'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
+        'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
     }).then(function(data) {
 
         var mergedFeeds = rss.mergeFeeds([
@@ -33,7 +40,13 @@ app.get('/', function(req, res) {
                     'abts': 'Almost Better Than Silence',
                     'abtd': 'Almost Better Than Dragons',
                     'pcp': 'Press Continue Podcast',
-                }
+                },
+                iTunesPages: {
+                    'abts': 'https://itunes.apple.com/us/podcast/almost-better-than-silence/id953967760?mt=2&ls=1',
+                    'abtd': 'https://itunes.apple.com/us/podcast/almost-better-than-dragons/id981540916?mt=2&ls=1',
+                    'pcp': 'https://itunes.apple.com/us/podcast/press-continue-podcast/id875157024?mt=2&ls=1',
+                },
+                RSSFeeds: RSS_FEEDS,
             }
         );
     }).then(null, function(err) {

@@ -1,4 +1,4 @@
-var CACHE_DURATION = 1000 * 30;
+var CACHE_DURATION = 1000 * 60 * 30;
 var cache = {};
 function getCached(name, regenerator, cb) {
     if (name in cache && cache[name].expires > Date.now()) {

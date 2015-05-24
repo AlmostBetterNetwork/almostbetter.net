@@ -1,3 +1,4 @@
+var moment = require('moment');
 var Promise = require('promise');
 var sanitizeHTML = require('sanitize-html');
 var superagent = require('superagent');
@@ -63,6 +64,9 @@ function processFeed(feed, id) {
             }
         );
 
+        i.__date = new Date(i.pubDate[0]);
+        i.__dateRel = moment(i.__date).fromNow();
+
         return i;
     });
 }
@@ -78,10 +82,7 @@ exports.mergeFeeds = function mergeFeeds(feeds) {
     });
 
     feedItems.sort(function(a, b) {
-        var aDate = new Date(a.pubDate[0]);
-        var bDate = new Date(b.pubDate[0]);
-
-        return bDate - aDate;
+        return b.__date - a.__date;
     });
 
     return feedItems;
