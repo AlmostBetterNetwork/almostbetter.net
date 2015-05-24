@@ -17,6 +17,15 @@ var RSS_FEEDS = {
     'pcp': 'http://presscontinue.podbean.com/feed/',
 };
 
+// almostbetter.network -> almostbetter.net
+app.use(function(req, res, next) {
+    if (req.hostname !== 'almostbetter.network') {
+        next();
+        return;
+    }
+    res.redirect(301, 'http://almostbetter.net' + req.originalUrl);
+});
+
 
 app.get('/', function(req, res) {
 
