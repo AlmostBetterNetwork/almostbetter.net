@@ -8,6 +8,7 @@ env.express(app);
 
 var rss = require('./src/rss');
 var util = require('./src/util');
+var youtube = require('./src/youtube');
 
 
 var RSS_FEEDS = {
@@ -23,6 +24,7 @@ app.get('/', function(req, res) {
         'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
         'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
+        'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA'),
     }).then(function(data) {
 
         var mergedFeeds = rss.mergeFeeds([
@@ -47,6 +49,8 @@ app.get('/', function(req, res) {
                     'pcp': 'https://itunes.apple.com/us/podcast/press-continue-podcast/id875157024?mt=2&ls=1',
                 },
                 RSSFeeds: RSS_FEEDS,
+
+                youtubeFeed: data.youtube_abts.items.slice(0, 3),
             }
         );
     }).then(null, function(err) {
