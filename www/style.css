@@ -217,6 +217,8 @@ main {
 article {
     border-top: 1px dotted #999;
     padding: 30px 10px;
+    max-width: 100%;
+    word-wrap: break-word;
 }
 .recent article {
     padding: 40px 120px 40px 10px;
@@ -249,6 +251,9 @@ article .posted > * {
     font-size: 12px;
 }
 
+article p {
+    max-width: 100%;
+}
 article p img {
     float: left;
     margin: 0 15px 15px 0;
@@ -345,7 +350,7 @@ footer a {
 
 @media only screen and (max-width: 750px)  {
     header .hero {
-        padding: 10px;
+        padding: 40px 10px;
     }
     header .hero .show-list {
         display: none;

@@ -3,7 +3,7 @@
 {% block content %}
   <aside class="main-sidebar">
     {% for item in youtubeFeed %}
-    <article style="background-image: url({{ item.snippet.thumbnails.default.url }})">
+    <article style="background-image: url({{ item.snippet.thumbnails.medium.url }})">
       <i class="icon-youtube-play"></i>
       <a href="https://www.youtube.com/watch?v={{ item.id.videoId }}">
         <h1>{{ item.snippet.title }}</h1>
