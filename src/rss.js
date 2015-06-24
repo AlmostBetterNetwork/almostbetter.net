@@ -7,11 +7,11 @@ var xml2js = require('xml2js');
 var cache = require('./cache');
 
 
-exports.getRSS = function getRSS(url, id, raw) {
+exports.getRSS = function getRSS(url, id) {
     console.log('Starting lookup of ' + url);
     return new Promise(function(resolve, reject) {
         cache.getCached(
-            url + ';json_' + (raw ? 'no' : 'yes'),
+            url,
             function(cb) {
                 console.log('Fetching ' + url);
                 superagent.get(url)
@@ -20,11 +20,6 @@ exports.getRSS = function getRSS(url, id, raw) {
                     .end(function(err, res) {
                         if (err) {
                             cb(err);
-                            return;
-                        }
-
-                        if (raw) {
-                            cb(null, res.text);
                             return;
                         }
 
@@ -47,10 +42,6 @@ exports.getRSS = function getRSS(url, id, raw) {
                     reject(err);
                 } else {
                     console.log('Fetch of ' + url + ' complete');
-                    if (raw) {
-                        resolve(body);
-                        return;
-                    }
                     resolve(processFeed(body, id));
                 }
             }
