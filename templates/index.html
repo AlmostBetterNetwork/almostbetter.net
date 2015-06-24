@@ -34,7 +34,7 @@
 
       <nav>
         <a href="{{ iTunesPages[item.__id] }}" class="button"><i class="icon-itunes"></i>Visit on iTunes</a>
-        <a href="{{ RSSFeeds[item.__id] }}" class="button"><i class="icon-rss"></i></a>
+        <a href="/feeds/rss/{{ item.__id }}" class="button"><i class="icon-rss"></i></a>
         <a href="{{ item.link[0] }}" target="_blank" class="button">Listen Now</a>
       </nav>
     </article>
