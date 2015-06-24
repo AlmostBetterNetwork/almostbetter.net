@@ -7,15 +7,10 @@ var env = new nunjucks.Environment(new nunjucks.FileSystemLoader('templates/'));
 env.express(app);
 
 var rss = require('./src/rss');
+var RSS_FEEDS = require('./src/constants').RSS_FEEDS;
 var util = require('./src/util');
 var youtube = require('./src/youtube');
 
-
-var RSS_FEEDS = {
-    'abts': 'https://media.signalleaf.com/Almost-Better-Than-Silence/rss',
-    'abtd': 'https://media.signalleaf.com/Almost-Better-Than-Dragons/rss',
-    'pcp': 'http://presscontinue.podbean.com/feed/',
-};
 
 // almostbetter.network -> almostbetter.net
 app.use(function(req, res, next) {
@@ -62,12 +57,16 @@ app.get('/', function(req, res) {
                 youtubeFeed: data.youtube_abts.items.slice(0, 3),
             }
         );
-    }).then(null, function(err) {
+    }, error).then(null, error);
+
+    function error(err) {
         console.error(err);
         res.render('error');
-    });
+    }
 
 });
+
+app.use('/feeds', require('./src/modules/feeds'));
 
 app.use(express.static(__dirname + '/www'));
 
