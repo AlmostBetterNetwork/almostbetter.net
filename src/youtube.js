@@ -4,7 +4,8 @@ var superagent = require('superagent');
 var cache = require('./cache');
 
 
-exports.getFeed = function getFeed(channelID) {
+exports.getFeed = function getFeed(channelID, maxResults) {
+    maxResults = maxResults || 5;
     console.log('Fetching YouTube feed for ' + channelID);
 
     return new Promise(function(resolve, reject) {
@@ -17,6 +18,7 @@ exports.getFeed = function getFeed(channelID) {
                     .query({type: 'video'})
                     .query({channelId: channelID})
                     .query({key: process.env.YOUTUBE_SECRET})
+                    .query({maxResults: maxResults})
                     .end(function(err, res) {
                         if (err) {
                             cb(err);

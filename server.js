@@ -28,7 +28,7 @@ app.get('/', function(req, res) {
         'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
         'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
-        'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA'),
+        'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA', 7),
     }).then(function(data) {
 
         var mergedFeeds = rss.mergeFeeds([
@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
                 },
                 RSSFeeds: RSS_FEEDS,
 
-                youtubeFeed: data.youtube_abts.items.slice(0, 7),
+                youtubeFeed: data.youtube_abts.items,
             }
         );
     }, error).then(null, error);
