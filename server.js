@@ -54,7 +54,7 @@ app.get('/', function(req, res) {
                 },
                 RSSFeeds: RSS_FEEDS,
 
-                youtubeFeed: data.youtube_abts.items.slice(0, 3),
+                youtubeFeed: data.youtube_abts.items.slice(0, 7),
             }
         );
     }, error).then(null, error);
