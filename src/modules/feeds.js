@@ -29,6 +29,8 @@ router.get('/rss/:feed', function(req, res) {
         if (!userH) return;
         rssReq = rssReq.set(h, userH);
     });
+    
+    rssReq.set('x-forwarded-for', req.ip);
 
     rssReq.buffer()
         .end(function(err, resp) {
