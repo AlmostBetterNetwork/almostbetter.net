@@ -1,5 +1,5 @@
 exports.RSS_FEEDS = {
-    'abts': 'https://media.signalleaf.com/Almost-Better-Than-Silence/rss',
+    'abts': 'https://pinecast.com/feed/abts',
     'abtd': 'https://pinecast.com/feed/abtd',
     'pcp': 'http://presscontinue.podbean.com/feed/',
 };
