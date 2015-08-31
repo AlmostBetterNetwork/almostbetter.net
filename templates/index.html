@@ -33,7 +33,9 @@
       <p class="posted"><i class="icon-calendar"></i>{{ item.__dateRel }}</p>
 
       <nav>
-        <a href="{{ iTunesPages[item.__id] }}" class="button"><i class="icon-itunes"></i>Visit on iTunes</a>
+        {% if iTunesPages[item.__id] %}
+          <a href="{{ iTunesPages[item.__id] }}" class="button"><i class="icon-itunes"></i>Visit on iTunes</a>
+        {% endif %}
         <a href="/feeds/rss/{{ item.__id }}" class="button"><i class="icon-rss"></i></a>
         <a href="{{ item.link[0] }}" target="_blank" class="button">Listen Now</a>
       </nav>

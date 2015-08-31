@@ -28,6 +28,7 @@ app.get('/', function(req, res) {
         'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
         'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
+        'feed_tsk': rss.getRSS(RSS_FEEDS.tsk, 'tsk'),
         'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA', 7),
     }).then(function(data) {
 
@@ -35,6 +36,7 @@ app.get('/', function(req, res) {
             data.feed_abts,
             data.feed_abtd,
             data.feed_pcp,
+            data.feed_tsk,
         ]);
         console.log('Homepage ready to render');
 
@@ -46,6 +48,7 @@ app.get('/', function(req, res) {
                     'abts': 'Almost Better Than Silence',
                     'abtd': 'Almost Better Than Dragons',
                     'pcp': 'Press Continue Podcast',
+                    'tsk': 'That\'s So Kawaii',
                 },
                 iTunesPages: {
                     'abts': 'https://itunes.apple.com/us/podcast/almost-better-than-silence/id953967760?mt=2&ls=1',
