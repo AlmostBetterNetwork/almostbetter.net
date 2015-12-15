@@ -27,6 +27,7 @@ app.get('/', function(req, res) {
     util.eachPromise({
         'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
         'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
+        'feed_lio': rss.getRSS(RSS_FEEDS.lio, 'lio'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
         'feed_tsk': rss.getRSS(RSS_FEEDS.tsk, 'tsk'),
         'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA', 7),
@@ -35,6 +36,7 @@ app.get('/', function(req, res) {
         var mergedFeeds = rss.mergeFeeds([
             data.feed_abts,
             data.feed_abtd,
+            data.feed_lio,
             data.feed_pcp,
             data.feed_tsk,
         ]);
@@ -47,12 +49,14 @@ app.get('/', function(req, res) {
                 feedNames: {
                     'abts': 'Almost Better Than Silence',
                     'abtd': 'Almost Better Than Dragons',
+                    'lio': 'Life In Overdrive',
                     'pcp': 'Press Continue Podcast',
                     'tsk': 'That\'s So Kawaii',
                 },
                 iTunesPages: {
                     'abts': 'https://itunes.apple.com/us/podcast/almost-better-than-silence/id953967760?mt=2&ls=1',
                     'abtd': 'https://itunes.apple.com/us/podcast/almost-better-than-dragons/id981540916?mt=2&ls=1',
+                    'lio': 'https://itunes.apple.com/us/podcast/life-in-overdrive/id1067347687?mt=2',
                     'pcp': 'https://itunes.apple.com/us/podcast/press-continue-podcast/id875157024?mt=2&ls=1',
                     'tsk': 'https://itunes.apple.com/us/podcast/thats-so-kawaii/id1035343949?mt=2',
                 },
