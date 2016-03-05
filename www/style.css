@@ -434,3 +434,16 @@ footer a {
 .icon-itunes:before { content: '\e814'; } /* '' */
 .icon-youtube:before { content: '\e815'; } /* '' */
 .icon-cc:before { content: '\e816'; } /* '' */
+
+
+dt {
+    font-weight: bold;
+    margin-left: 20px;
+}
+dt a {
+    color: #222;
+}
+dd {
+    margin-bottom: 20px;
+    padding-right: 50%;
+}

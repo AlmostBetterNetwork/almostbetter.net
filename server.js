@@ -27,18 +27,16 @@ app.get('/', function(req, res) {
     util.eachPromise({
         'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
         'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
-        'feed_lio': rss.getRSS(RSS_FEEDS.lio, 'lio'),
+        'feed_ect': rss.getRSS(RSS_FEEDS.ect, 'ect'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
-        'feed_tsk': rss.getRSS(RSS_FEEDS.tsk, 'tsk'),
         'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA', 7),
     }).then(function(data) {
 
         var mergedFeeds = rss.mergeFeeds([
             data.feed_abts,
             data.feed_abtd,
-            data.feed_lio,
+            data.feed_ect,
             data.feed_pcp,
-            data.feed_tsk,
         ]);
         console.log('Homepage ready to render');
 
@@ -49,16 +47,18 @@ app.get('/', function(req, res) {
                 feedNames: {
                     'abts': 'Almost Better Than Silence',
                     'abtd': 'Almost Better Than Dragons',
-                    'lio': 'Life In Overdrive',
+                    'ect': 'Erie Canal Theater',
+                    // 'lio': 'Life In Overdrive',
                     'pcp': 'Press Continue Podcast',
-                    'tsk': 'That\'s So Kawaii',
+                    // 'tsk': 'That\'s So Kawaii',
                 },
                 iTunesPages: {
                     'abts': 'https://itunes.apple.com/us/podcast/almost-better-than-silence/id953967760?mt=2&ls=1',
                     'abtd': 'https://itunes.apple.com/us/podcast/almost-better-than-dragons/id981540916?mt=2&ls=1',
-                    'lio': 'https://itunes.apple.com/us/podcast/life-in-overdrive/id1067347687?mt=2',
+                    'ect': 'https://itunes.apple.com/us/podcast/erie-canal-theatre/id1088592920?mt=2',
+                    // 'lio': 'https://itunes.apple.com/us/podcast/life-in-overdrive/id1067347687?mt=2',
                     'pcp': 'https://itunes.apple.com/us/podcast/press-continue-podcast/id875157024?mt=2&ls=1',
-                    'tsk': 'https://itunes.apple.com/us/podcast/thats-so-kawaii/id1035343949?mt=2',
+                    // 'tsk': 'https://itunes.apple.com/us/podcast/thats-so-kawaii/id1035343949?mt=2',
                 },
                 RSSFeeds: RSS_FEEDS,
 
@@ -72,6 +72,11 @@ app.get('/', function(req, res) {
         res.render('error');
     }
 
+});
+
+
+app.get('/archive', function(req, res) {
+    res.render('archive.html');
 });
 
 app.use('/feeds', require('./src/modules/feeds'));
