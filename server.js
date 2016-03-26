@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
                 feedNames: {
                     'abts': 'Almost Better Than Silence',
                     'abtd': 'Almost Better Than Dragons',
-                    'ect': 'Erie Canal Theater',
+                    'ect': 'Erie Canal Theatre',
                     // 'lio': 'Life In Overdrive',
                     'pcp': 'Press Continue Podcast',
                     // 'tsk': 'That\'s So Kawaii',
