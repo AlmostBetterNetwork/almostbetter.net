@@ -28,6 +28,7 @@ app.get('/', function(req, res) {
         'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
         'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
         'feed_ect': rss.getRSS(RSS_FEEDS.ect, 'ect'),
+        'feed_otg': rss.getRSS(RSS_FEEDS.otg, 'otg'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
         'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA', 7),
     }).then(function(data) {
@@ -36,6 +37,7 @@ app.get('/', function(req, res) {
             data.feed_abts,
             data.feed_abtd,
             data.feed_ect,
+            data.feed_otg,
             data.feed_pcp,
         ]);
         console.log('Homepage ready to render');
@@ -49,6 +51,7 @@ app.get('/', function(req, res) {
                     'abtd': 'Almost Better Than Dragons',
                     'ect': 'Erie Canal Theatre',
                     // 'lio': 'Life In Overdrive',
+                    'otg': 'One Track Gamers',
                     'pcp': 'Press Continue Podcast',
                     // 'tsk': 'That\'s So Kawaii',
                 },
@@ -57,6 +60,7 @@ app.get('/', function(req, res) {
                     'abtd': 'https://itunes.apple.com/us/podcast/almost-better-than-dragons/id981540916?mt=2&ls=1',
                     'ect': 'https://itunes.apple.com/us/podcast/erie-canal-theatre/id1088592920?mt=2',
                     // 'lio': 'https://itunes.apple.com/us/podcast/life-in-overdrive/id1067347687?mt=2',
+                    'otg': 'https://itunes.apple.com/us/podcast/one-track-gamers/id956587044?mt=2',
                     'pcp': 'https://itunes.apple.com/us/podcast/press-continue-podcast/id875157024?mt=2&ls=1',
                     // 'tsk': 'https://itunes.apple.com/us/podcast/thats-so-kawaii/id1035343949?mt=2',
                 },
