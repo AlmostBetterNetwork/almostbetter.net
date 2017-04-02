@@ -24,7 +24,6 @@ exports.getRSS = function getRSS(url, id) {
                         }
 
                         console.log('Fetched ' + url + ', parsing');
-                        console.log(res.text);
                         xml2js.parseString(res.text, {trim: true}, function(err, body) {
                             if (err) {
                                 cb(err);
