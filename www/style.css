@@ -141,22 +141,26 @@ header {
 }
 
 header .show-list {
-    float: right;
+    order: 2;
 }
 
 .hero {
+    align-items: center;
     background-image: url(images/logo.png);
     background-repeat: no-repeat;
     background-position: 0 bottom;
     color: #fff;
+    display: flex;
     margin: auto;
     max-width: 1024px;
-    padding: 100px 10px;
+    padding: 50px 10px;
 }
 .hero .blowout {
+    flex: 1 1;
     font-family: Fugaz One, sans-serif;
     font-size: 80px;
     line-height: 1em;
+    order: 1;
     text-align: left;
 }
 .hero .blowout em {
