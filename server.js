@@ -27,7 +27,7 @@ app.get('/', function(req, res) {
     util.eachPromise({
         'feed_abts': rss.getRSS(RSS_FEEDS.abts, 'abts'),
         'feed_abtd': rss.getRSS(RSS_FEEDS.abtd, 'abtd'),
-        'feed_dad': rss.getRSS(RSS_FEEDS.ect, 'dad'),
+        'feed_dad': rss.getRSS(RSS_FEEDS.dad, 'dad'),
         'feed_ect': rss.getRSS(RSS_FEEDS.ect, 'ect'),
         'feed_otg': rss.getRSS(RSS_FEEDS.otg, 'otg'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
