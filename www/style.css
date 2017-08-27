@@ -16,10 +16,10 @@ http://paletton.com/#uid=70f0x0kmcqk7VqKdGsas4mDu6dH
 }
 
 .main-nav {
-    background: #D5C0A0;
+    background: #fff;
 }
 header {
-    background: #D26A40;
+    background: #61a0f3;
 }
 
 
@@ -213,7 +213,7 @@ main {
 }
 
 .recent > h1 {
-    color: #164675;
+    color: #61a0f3;
     font-family: Fugaz One, sans-serif;
     padding-left: 10px;
 }
