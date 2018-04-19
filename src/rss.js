@@ -85,5 +85,5 @@ exports.mergeFeeds = function mergeFeeds(feeds) {
         return b.__date - a.__date;
     });
 
-    return feedItems;
+    return feedItems.slice(0, 200);
 }
