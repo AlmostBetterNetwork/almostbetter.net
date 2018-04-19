@@ -7,4 +7,5 @@ exports.RSS_FEEDS = {
     'otg': 'https://pinecast.com/feed/one-track-gamers',
     'pcp': 'https://pinecast.com/feed/press-continue-podcast',
     'tsk': 'https://pinecast.com/feed/tsk',
+    'pnol': 'https://pinecast.com/feed/paper-news-out-loud',
 };
