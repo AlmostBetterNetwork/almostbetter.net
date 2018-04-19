@@ -31,6 +31,7 @@ app.get('/', function(req, res) {
         'feed_ect': rss.getRSS(RSS_FEEDS.ect, 'ect'),
         'feed_otg': rss.getRSS(RSS_FEEDS.otg, 'otg'),
         'feed_pcp': rss.getRSS(RSS_FEEDS.pcp, 'pcp'),
+        'feed_pnol': rss.getRSS(RSS_FEEDS.pnol, 'pnol'),
         'youtube_abts': youtube.getFeed('UCGJppo4ZMBm3f5_QAU8kQWA', 7),
     }).then(function(data) {
 
@@ -41,6 +42,7 @@ app.get('/', function(req, res) {
             data.feed_ect,
             data.feed_otg,
             data.feed_pcp,
+            data.feed_pnol,
         ]);
         console.log('Homepage ready to render');
 
@@ -56,6 +58,7 @@ app.get('/', function(req, res) {
                     // 'lio': 'Life In Overdrive',
                     'otg': 'One Track Gamers',
                     'pcp': 'Press Continue Podcast',
+                    'pnol': 'Paper News Out Loud',
                     // 'tsk': 'That\'s So Kawaii',
                 },
                 iTunesPages: {
@@ -65,6 +68,7 @@ app.get('/', function(req, res) {
                     'ect': 'https://itunes.apple.com/us/podcast/erie-canal-theatre/id1088592920?mt=2',
                     'otg': 'https://itunes.apple.com/us/podcast/one-track-gamers/id956587044?mt=2',
                     'pcp': 'https://itunes.apple.com/us/podcast/press-continue-podcast/id875157024?mt=2&ls=1',
+                    'pnol': 'https://itunes.apple.com/us/podcast/paper-news-out-loud/id1322211414?mt=2',
 
                     // 'lio': 'https://itunes.apple.com/us/podcast/life-in-overdrive/id1067347687?mt=2',
                     // 'tsk': 'https://itunes.apple.com/us/podcast/thats-so-kawaii/id1035343949?mt=2',
